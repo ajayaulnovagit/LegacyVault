@@ -1,0 +1,269 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: hsl(0, 0%, 100%);
+  --foreground: hsl(210, 11%, 15%);
+  --muted: hsl(210, 4%, 96%);
+  --muted-foreground: hsl(210, 6%, 46%);
+  --popover: hsl(0, 0%, 100%);
+  --popover-foreground: hsl(210, 11%, 15%);
+  --card: hsl(0, 0%, 100%);
+  --card-foreground: hsl(210, 11%, 15%);
+  --border: hsl(210, 13%, 91%);
+  --input: hsl(210, 13%, 91%);
+  --primary: hsl(207, 90%, 54%);
+  --primary-foreground: hsl(0, 0%, 100%);
+  --secondary: hsl(210, 4%, 96%);
+  --secondary-foreground: hsl(210, 11%, 15%);
+  --accent: hsl(210, 4%, 96%);
+  --accent-foreground: hsl(210, 11%, 15%);
+  --destructive: hsl(0, 84%, 60%);
+  --destructive-foreground: hsl(0, 0%, 100%);
+  --success: hsl(123, 38%, 57%);
+  --success-foreground: hsl(0, 0%, 100%);
+  --warning: hsl(35, 100%, 50%);
+  --warning-foreground: hsl(0, 0%, 100%);
+  --info: hsl(207, 90%, 54%);
+  --info-foreground: hsl(0, 0%, 100%);
+  --ring: hsl(207, 90%, 54%);
+  --radius: 0.5rem;
+  
+  /* Asset type colors */
+  --bank-accent: hsl(207, 90%, 54%);
+  --property-accent: hsl(123, 38%, 57%);
+  --investment-accent: hsl(43, 96%, 56%);
+  --crypto-accent: hsl(271, 91%, 65%);
+  
+  /* Status colors */
+  --status-active: hsl(123, 38%, 57%);
+  --status-pending: hsl(35, 100%, 50%);
+  --status-critical: hsl(0, 84%, 60%);
+  
+  /* Well-being colors */
+  --wellbeing-gradient-start: hsl(35, 100%, 97%);
+  --wellbeing-gradient-end: hsl(43, 100%, 97%);
+  --wellbeing-border: hsl(35, 100%, 85%);
+}
+
+.dark {
+  --background: hsl(210, 11%, 4%);
+  --foreground: hsl(0, 0%, 98%);
+  --muted: hsl(210, 6%, 8%);
+  --muted-foreground: hsl(210, 5%, 61%);
+  --popover: hsl(210, 11%, 4%);
+  --popover-foreground: hsl(0, 0%, 98%);
+  --card: hsl(210, 11%, 4%);
+  --card-foreground: hsl(0, 0%, 98%);
+  --border: hsl(210, 6%, 8%);
+  --input: hsl(210, 6%, 8%);
+  --primary: hsl(207, 90%, 54%);
+  --primary-foreground: hsl(0, 0%, 100%);
+  --secondary: hsl(210, 6%, 8%);
+  --secondary-foreground: hsl(0, 0%, 98%);
+  --accent: hsl(210, 6%, 8%);
+  --accent-foreground: hsl(0, 0%, 98%);
+  --destructive: hsl(0, 63%, 31%);
+  --destructive-foreground: hsl(0, 0%, 98%);
+  --success: hsl(123, 38%, 45%);
+  --success-foreground: hsl(0, 0%, 100%);
+  --warning: hsl(35, 91%, 40%);
+  --warning-foreground: hsl(0, 0%, 100%);
+  --info: hsl(207, 90%, 54%);
+  --info-foreground: hsl(0, 0%, 100%);
+  --ring: hsl(210, 5%, 82%);
+  --radius: 0.5rem;
+  
+  /* Asset type colors (dark mode) */
+  --bank-accent: hsl(207, 90%, 54%);
+  --property-accent: hsl(123, 38%, 45%);
+  --investment-accent: hsl(43, 96%, 45%);
+  --crypto-accent: hsl(271, 91%, 55%);
+  
+  /* Status colors (dark mode) */
+  --status-active: hsl(123, 38%, 45%);
+  --status-pending: hsl(35, 91%, 40%);
+  --status-critical: hsl(0, 63%, 31%);
+  
+  /* Well-being colors (dark mode) */
+  --wellbeing-gradient-start: hsl(35, 15%, 8%);
+  --wellbeing-gradient-end: hsl(43, 15%, 8%);
+  --wellbeing-border: hsl(35, 30%, 15%);
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply font-sans antialiased bg-background text-foreground;
+    padding-bottom: env(safe-area-inset-bottom);
+  }
+
+  /* Custom utility classes for asset types */
+  .bg-bank-accent {
+    background-color: hsl(var(--bank-accent));
+  }
+  
+  .bg-property-accent {
+    background-color: hsl(var(--property-accent));
+  }
+  
+  .bg-investment-accent {
+    background-color: hsl(var(--investment-accent));
+  }
+  
+  .bg-crypto-accent {
+    background-color: hsl(var(--crypto-accent));
+  }
+  
+  .text-bank-accent {
+    color: hsl(var(--bank-accent));
+  }
+  
+  .text-property-accent {
+    color: hsl(var(--property-accent));
+  }
+  
+  .text-investment-accent {
+    color: hsl(var(--investment-accent));
+  }
+  
+  .text-crypto-accent {
+    color: hsl(var(--crypto-accent));
+  }
+
+  /* Status colors */
+  .bg-status-active {
+    background-color: hsl(var(--status-active));
+  }
+  
+  .bg-status-pending {
+    background-color: hsl(var(--status-pending));
+  }
+  
+  .bg-status-critical {
+    background-color: hsl(var(--status-critical));
+  }
+  
+  .text-status-active {
+    color: hsl(var(--status-active));
+  }
+  
+  .text-status-pending {
+    color: hsl(var(--status-pending));
+  }
+  
+  .text-status-critical {
+    color: hsl(var(--status-critical));
+  }
+
+  /* Well-being alert styling */
+  .wellbeing-gradient {
+    background: linear-gradient(to right, hsl(var(--wellbeing-gradient-start)), hsl(var(--wellbeing-gradient-end)));
+    border-color: hsl(var(--wellbeing-border));
+  }
+
+  /* Mobile navigation safe area */
+  @media (max-width: 768px) {
+    body {
+      padding-bottom: calc(80px + env(safe-area-inset-bottom));
+    }
+  }
+
+  /* Animations for status indicators */
+  .pulse-active {
+    animation: pulse-green 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+
+  @keyframes pulse-green {
+    0%, 100% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0.5;
+    }
+  }
+
+  /* Asset card hover effects */
+  .asset-card-hover {
+    transition: all 0.2s ease-in-out;
+  }
+  
+  .asset-card-hover:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  }
+
+  /* Form focus states */
+  .focus-ring:focus {
+    outline: 2px solid hsl(var(--ring));
+    outline-offset: 2px;
+  }
+
+  /* Button variant styles */
+  .btn-success {
+    background-color: hsl(var(--success));
+    color: hsl(var(--success-foreground));
+  }
+  
+  .btn-success:hover {
+    background-color: hsl(var(--success) / 0.9);
+  }
+  
+  .btn-warning {
+    background-color: hsl(var(--warning));
+    color: hsl(var(--warning-foreground));
+  }
+  
+  .btn-warning:hover {
+    background-color: hsl(var(--warning) / 0.9);
+  }
+
+  /* Loading states */
+  .loading-shimmer {
+    background: linear-gradient(90deg, 
+      hsl(var(--muted)) 25%, 
+      hsl(var(--muted) / 0.5) 50%, 
+      hsl(var(--muted)) 75%
+    );
+    background-size: 200% 100%;
+    animation: shimmer 1.5s infinite;
+  }
+
+  @keyframes shimmer {
+    0% {
+      background-position: -200% 0;
+    }
+    100% {
+      background-position: 200% 0;
+    }
+  }
+
+  /* Responsive text sizing */
+  @media (max-width: 640px) {
+    .responsive-title {
+      font-size: 1.5rem;
+      line-height: 2rem;
+    }
+  }
+
+  /* Chart and data visualization colors */
+  .chart-primary {
+    color: hsl(var(--primary));
+  }
+  
+  .chart-secondary {
+    color: hsl(var(--property-accent));
+  }
+  
+  .chart-tertiary {
+    color: hsl(var(--investment-accent));
+  }
+  
+  .chart-quaternary {
+    color: hsl(var(--crypto-accent));
+  }
+}
